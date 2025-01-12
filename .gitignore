@@ -1,6 +1,6 @@
 #ignore files and folders..
 steps.txt
-
+pass.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

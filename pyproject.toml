@@ -11,6 +11,8 @@ python = "3.10.11"
 pandas = "^2.2.3"
 numpy = "^2.2.1"
 python-dotenv = "^1.0.1"
+pymongo = "^4.10.1"
+certifi = "^2024.12.14"
 
 
 [tool.poetry.group.dev.dependencies]
