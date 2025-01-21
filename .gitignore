@@ -1,7 +1,5 @@
 #ignore files and folders..
-steps.txt
-pass.txt
-data_ingestion.jpg
+imp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

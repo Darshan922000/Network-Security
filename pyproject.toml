@@ -13,6 +13,7 @@ numpy = "^2.2.1"
 python-dotenv = "^1.0.1"
 pymongo = "^4.10.1"
 certifi = "^2024.12.14"
+scikit-learn = "^1.6.1"
 
 
 [tool.poetry.group.dev.dependencies]
