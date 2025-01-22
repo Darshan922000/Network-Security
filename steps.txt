@@ -1,0 +1,55 @@
+Create an environment.
+Activate an environment.
+Create README.md
+connect git and push README.md
+create git ignore with pyhon and pull in vscode
+Create folder structure and Imp files.
+note= .env will store imp credentials and we will access it via python-dotenv library we load credentials via load_dotenv() and can access vis os.getenv()...
+Connect poetry (poetry init)
+Add dependencies (poetry add)
+poetry install for confirmation.
+Add logging and exception handling.
+Set up MongoDB--> ATLAS account for free access.
+Use its code to check if mongo db is connected or not @ test_mongodb.pyhon
+
+ETL_PIPELINE: 
+Set up ETL pipeline with python (source(read data) --> Transform --> load) @ etl_pipeline.py
+    in this step we are push json data to mongo db...How?
+    first create connecrtion via mongodb_client to mongodb
+    then in that mongodb we add database
+    then in that database we add collection
+    then in that collection we add our records via collection.insert_many(records)
+        here we transform our records(csv) to list of json 
+    check_out @ etl_pipeline.py
+
+
+DATA_INGESTION Configration:
+    check_out data_ingestion.jpg, this is the basic path for taking data from database the store it in feature store/
+    then export raw data from feature store and apply EDA and FE then split the data in to train and test and store it for further process.
+        Now before working on data_ingestion: we have to set up path of the files for storage @entity/config_entity.py
+        For that we have to define common constant variable for training pipeline & data Ingestion related constant @constant/training_pipeline/__init__.py
+
+data_ingestion Component:
+    step 1: Read the data from mongodb
+    step 2: create the feature store 
+    step 3: split the data into train and test
+    step 4: store splited file into ingested folder
+
+data_ingestion_artifacts...
+we have a train and test data file now we are storing the file path for train & test data which will be used in further processes.
+thwn we test it in main...
+
+Data Validation:
+    Drift: e.g. initially data follow normal bell curve, after some time it may be skew one side and need to be tune model. 
+what we need(schema):
+    data validation directory, validation data dr, invalid data dr, valid train file path, invalid train file path, invalid test file path, drift report file path
+    First create a constant for schema in training_pipeline __init__.py file (name of the directory)
+    Second in config_entity create a file path for all directory.
+    Thirt create a file in component --> data_validation.py | Check project structure "Data validation Component".
+    Forth create class DataValidationArtifacts in artifact_entity to store all file(output) of data validation component
+    To validate num of column, numerical colmn exist or not, Create a schema folder and add file path for schema.yml in training_pipeline init file...
+    Then add columns name with its datatype and num column names in propper format. We will use it for validation....
+    Create a class DataValidation in data_validation.py :
+        First we read the schema file
+            we will read the file in utils--> func: read_yaml_file(), generally utils useed for reading, loading, saving file.
+        Second  
