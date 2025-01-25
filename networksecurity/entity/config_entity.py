@@ -41,10 +41,10 @@ class DataValidationConfig:
             training_pipeline_config.artifact_dir,training_pipeline.DATA_VALIDATION_DIR_NAME
         )
         self.valid_data_dir: str = os.path.join(
-            self.data_validation_dir, training_pipeline.DATA_VLIDATION_VALID_DIR
+            self.data_validation_dir, training_pipeline.DATA_VALIDATION_VALID_DIR
         )
         self.invalid_data_dir: str = os.path.join(
-            self.data_validation_dir, training_pipeline.DATA_VLIDATION_INVALID_DIR
+            self.data_validation_dir, training_pipeline.DATA_VALIDATION_INVALID_DIR
         )
         self.valid_train_file_path: str = os.path.join(
             self.valid_data_dir, training_pipeline.TRAIN_FILE_NAME
@@ -60,6 +60,6 @@ class DataValidationConfig:
         )
         self.drift_report_file_path: str = os.path.join(
             self.data_validation_dir, 
-            training_pipeline.DATA_VLIDATION_DRIFT_REPORT_DIR, 
-            training_pipeline.DATA_VLIDATION_DRIFT_REPORT_FILE_NAME
+            training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR, 
+            training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME
         )
