@@ -52,4 +52,6 @@ what we need(schema):
     Create a class DataValidation in data_validation.py :
         First we read the schema file
             we will read the file in utils--> func: read_yaml_file(), generally utils useed for reading, loading, saving file.
-        Second  
+        Second  create function initiate_data_validation --> data_validation path
+            Read train and test file for validation pourpose..
+            
