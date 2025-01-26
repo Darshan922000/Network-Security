@@ -62,5 +62,11 @@ what we need(schema):
             at the end store necessary path at --> data_validation_artifact in entity/artifact_entity.py and return data_validation_artifact(all necessary paths)
 
 Data Transformation Componenet:
- 
-            
+    First set all transformation file paths: path from where data is coming and storage_location for transformed data 
+        Create how data coming from the transformation will store @utils.py 
+    Second Transforming data @data_transformation
+    1st create class DataTransformation()
+        create func: initiate_data_trasformation
+        write whole process inside it and create necessary func in the class such as read_data and get_data_transformer_obj
+        return data_transformation_artifacts
+        

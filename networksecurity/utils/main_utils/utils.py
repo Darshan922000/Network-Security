@@ -40,7 +40,7 @@ def save_numpy_array_data(file_path:str, array: np.array):
     except Exception as e:
         raise NetworkSecurityExcption(e, sys)
 
-def save_preprocessor_boject(file_path:str, obj: object):
+def save_preprocessor_oject(file_path:str, obj: object):
     try:
         logging.info("Enetred the save_object method of main unit class")
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
