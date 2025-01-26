@@ -14,3 +14,9 @@ class DataValidationArtifacts:  # here we store location of data_validtion outpu
     invalid_train_file_path: str
     invalid_test_file_path: str
     drift_report_file_path: str
+
+@dataclass
+class DataTransformationArtifacts:  # here we store location of data_transformation output
+    transformed_obj_file_path: str
+    transformed_train_file_path: str
+    transformed_test_file_path: str
