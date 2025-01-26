@@ -54,4 +54,13 @@ what we need(schema):
             we will read the file in utils--> func: read_yaml_file(), generally utils useed for reading, loading, saving file.
         Second  create function initiate_data_validation --> data_validation path
             Read train and test file for validation pourpose..
+            create func in clsdd Datavalidation where validation of number of col and initialize here...
+            Also validate numerical columns
+            For checking data drift create func: detect_dataset_drift --> Datavalidation()
+            after checking store train and test csv in Artifacts/data_validation/validated/csv files
+            Also create drift report and store it at Artifacts/data_validation/drift_report
+            at the end store necessary path at --> data_validation_artifact in entity/artifact_entity.py and return data_validation_artifact(all necessary paths)
+
+Data Transformation Componenet:
+ 
             
