@@ -13,7 +13,7 @@ from networksecurity.exception.exception import NetworkSecurityExcption
 
 from networksecurity.entity.artifact_entity import DataValidationArtifacts, DataTransformationArtifacts #input will come from DataValidationArtifacts and out put will store in DataTransformationArtifacts..
 from networksecurity.entity.config_entity import DataTransformationConfig
-from networksecurity.utils.main_utils.utils import save_numpy_array_data, save_preprocessor_oject
+from networksecurity.utils.main_utils.utils import save_numpy_array_data, save_oject
 
 
 class DataTransformation:
@@ -81,7 +81,7 @@ class DataTransformation:
            test_array = np.c_[transformed_X_test, np.array(y_test)] # to save
 
            # lets save files..
-           save_preprocessor_oject(file_path=self.data_transformation_config.data_transformed_obj_file_path, obj=preprocessor_obj)
+           save_oject(file_path=self.data_transformation_config.data_transformed_obj_file_path, obj=preprocessor_obj)
            save_numpy_array_data(file_path=self.data_transformation_config.data_transformed_train_file_path, array=train_array)
            save_numpy_array_data(file_path=self.data_transformation_config.data_transformed_test_file_path, array=test_array)
 

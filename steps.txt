@@ -69,4 +69,9 @@ Data Transformation Componenet:
         create func: initiate_data_trasformation
         write whole process inside it and create necessary func in the class such as read_data and get_data_transformer_obj
         return data_transformation_artifacts
-        
+
+Model Trainer Componenet:
+    As usual first setup file paths and configration function
+     
+
+
