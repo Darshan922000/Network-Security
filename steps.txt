@@ -71,7 +71,25 @@ Data Transformation Componenet:
         return data_transformation_artifacts
 
 Model Trainer Componenet:
-    As usual first setup file paths and configration function
+    As usual first setup file paths, configration and artifacts for model trainer is setup. @training_pipeline, config_entity.py and artifact_entity.py
+    Then create ml_utils in utils folder and create metric and model file: inside metric -> classification_metric.py 
+        which contain func: get_classification_score() gives f1, precision, recall socre and store in ClassificationMetricArtifacts which further used to 
+        track scores in mlflow and stored in ModelTrainerArtifacts.
+    In model file create estimator.py -> create NetworkModel class which will take preprocessor and best model as an attribute and also consist predict method: useful to create an object for the next process: evaluation Componenet.
+        will create an object in train_model method of ModelTrainer()
+    Create a method: track_mlflow() in ModelTrainer() to track the result of ClassificationMetricArtifacts and storing best model.
+    Run initiate_model_trainer and return model_trainer_artifacts.
+
+How we can run the model training locally and track mlflow remotely: Ans-> via ML Dagshub: DagsHub is a platform for AI and ML developers that lets you manage and collaborate on your data, models, experiments, alongside your code.
+Dagshub: through it what we want is when we run code in local and mlflow hits all the logs ot tracking files will be loaded in remote repository not in local...
+Note: MLflow: Open-source, focuses on the ML lifecycle (tracking, models, etc.).
+      DAGsHub: Open-source, focuses on collaboration, version control (Git/DVC), and tracking.
+Step 1: conncet github repository in dagshub.
+Step 2: connect dagshub repo with local repo u need to install dagshub
+Step 3: Follow steps of dagshub @ experiments
+Step 4: Run the experiment locally all the tracking file and model saved at remote repository in dagshub.
+Note: we can give the url to anybody to track our progress. 
+
      
 
 
