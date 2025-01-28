@@ -130,6 +130,9 @@ AWS S3 Bucket:
         Now run the pipeline
         Note: don't share crendential and push it in git...please!!!
 
+github workflow:
+    write configration for EC2 deployment..
+
 Docker Image:
 
 
