@@ -128,8 +128,10 @@ AWS S3 Bucket:
         first create s3 bucket, setup same name in constant to access this bucket  
         Second create IAM user use its secret credentials to set up aws configure
         Now run the pipeline
+        Note: don't share crendential and push it in git...please!!!
 
 Docker Image:
+
 
     
 

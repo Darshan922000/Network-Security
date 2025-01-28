@@ -110,6 +110,7 @@ class TrainingPipeline:
             model_trainer_artifacts = self.start_model_training(transformation_artifacts=transformation_artifacts)
 
             self.sync_artifact_dir_to_s3()
+            
             self.sync_saved_model_dir_to_s3()
 
             return model_trainer_artifacts
