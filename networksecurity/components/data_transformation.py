@@ -85,7 +85,7 @@ class DataTransformation:
            save_numpy_array_data(file_path=self.data_transformation_config.data_transformed_train_file_path, array=train_array)
            save_numpy_array_data(file_path=self.data_transformation_config.data_transformed_test_file_path, array=test_array)
 
-           save_oject(file_path="Final Model/preprocessor.pkl", obj=preprocessor_obj)
+           save_oject(file_path="final_model/preprocessor.pkl", obj=preprocessor_obj)
 
            #lets put the file locations in artifact_entity to use it for further process...
            data_transformation_artifacts = DataTransformationArtifacts(

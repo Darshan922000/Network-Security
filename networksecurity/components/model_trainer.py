@@ -79,8 +79,8 @@ class ModelTrainer:
         network_model = NetworkModel(preprocessor=preprocessor, model=best_model)
         save_oject(file_path=self.model_trainer_config.trained_model_file_path, obj=network_model)
 
-        logging.info("Best model is saved at ./Final Model/")
-        save_oject(file_path="Final Model/model.pkl", obj=best_model)
+        logging.info("Best model is saved at ./file_model/")
+        save_oject(file_path="final_model/model.pkl", obj=best_model)
 
         model_trainer_artifacts = ModelTrainerArtifacts(
             trained_model_file_path= self.model_trainer_config.trained_model_file_path, 

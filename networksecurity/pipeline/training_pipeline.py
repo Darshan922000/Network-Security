@@ -27,11 +27,6 @@ from networksecurity.cloud.s3_syncer import S3Sync
 
 from networksecurity.constant.training_pipeline import TRAINING_BUCKET_NAME
 
-'''from dotenv import load_dotenv 
-load_dotenv()
-TRAINING_BUCKET_NAME = os.getenv("TRAINING_BUCKET_NAME")'''
-
-
 class TrainingPipeline:
     def __init__(self):
         self.training_pipeline_config = TrainingPipelineConfig()
