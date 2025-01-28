@@ -1,4 +1,4 @@
-import os 
+import os
 import sys
 
 from networksecurity.logging.logger import logging
@@ -23,9 +23,19 @@ from networksecurity.entity.artifact_entity import (
     ClassificationMetricArtifacts, 
     ModelTrainerArtifacts)
 
+from networksecurity.cloud.s3_syncer import S3Sync
+
+from networksecurity.constant.training_pipeline import TRAINING_BUCKET_NAME
+
+'''from dotenv import load_dotenv 
+load_dotenv()
+TRAINING_BUCKET_NAME = os.getenv("TRAINING_BUCKET_NAME")'''
+
+
 class TrainingPipeline:
     def __init__(self):
         self.training_pipeline_config = TrainingPipelineConfig()
+        self.s3_sync = S3Sync()
 
     def start_data_ingestion(self)->DataIngestionArtifacts:
         try:
@@ -73,7 +83,23 @@ class TrainingPipeline:
             return trainer_artifacts
         except Exception as e:
             raise NetworkSecurityExcption(e, sys)
+
+    # pushing final model and artifacts from artifacts folder to s3....
+    def sync_artifact_dir_to_s3(self):
+        try:
+            aws_bucket_url = f"s3://{TRAINING_BUCKET_NAME}/artifact/{self.training_pipeline_config.timestamp}"
+            self.s3_sync.sync_folder_to_s3(local_folder = self.training_pipeline_config.artifact_dir, aws_bucket_url = aws_bucket_url)
+        except Exception as e:
+            raise NetworkSecurityExcption(e, sys)
         
+    def sync_saved_model_dir_to_s3(self):
+        try:
+            aws_bucket_url = f"s3://{TRAINING_BUCKET_NAME}/final_model/{self.training_pipeline_config.timestamp}"
+            self.s3_sync.sync_folder_to_s3(local_folder = self.training_pipeline_config.model_dir, aws_bucket_url = aws_bucket_url)
+        except Exception as e:
+            raise NetworkSecurityExcption(e, sys)
+        
+
     def run_pipeline(self):
         try:
             # Data Ingestion...
@@ -87,6 +113,9 @@ class TrainingPipeline:
 
             # Model trainer...
             model_trainer_artifacts = self.start_model_training(transformation_artifacts=transformation_artifacts)
+
+            self.sync_artifact_dir_to_s3()
+            self.sync_saved_model_dir_to_s3()
 
             return model_trainer_artifacts
 

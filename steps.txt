@@ -112,8 +112,17 @@ Batch Predictions:
     what if we need prediction for new input features which don't have Result/Output. And we have to predict. We do BP.
     here we use the class NetworkModel from utils->ml_utils->model->NetworkModel for prediction
     create a func: predict_route in app, use upload file and predict based on file data store prediction in Prediction Output folder with input data.
-    
 
+AWS S3 Bucket:
+    Now it is better to push or having a replica of final model and artifacts in cloud for that we will use AWS S3 Bucket.
+    S3 Bucket: S3 buckets are a reliable and flexible way to store large amounts of unstructured data, with easy access, high durability, and scalable storage options.
+        Use Cases:
+            Storing static website content, backups, large datasets, and media files.
+            Sharing files or hosting files for websites or applications.
+
+    We will push this data final model and artifacts from our training pipeline.
+
+    
 
 
 
