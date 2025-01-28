@@ -127,10 +127,6 @@ AWS S3 Bucket:
         download aws cli in pc
         first create s3 bucket, setup same name in constant to access this bucket  
         Second create IAM user use its secret credentials to set up aws configure
-         e.g AWS Access Key ID [None]: AKIATWBJ2NCUHNYJI266
-             AWS Secret Access Key [None]: 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
-             Default region name [None]: us-east-2
-             Default output format [None]: json
         Now run the pipeline
 
 Docker Image:
