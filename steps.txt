@@ -61,6 +61,7 @@ what we need(schema):
             Also create drift report and store it at Artifacts/data_validation/drift_report
             at the end store necessary path at --> data_validation_artifact in entity/artifact_entity.py and return data_validation_artifact(all necessary paths)
 
+
 Data Transformation Componenet:
     First set all transformation file paths: path from where data is coming and storage_location for transformed data 
         Create how data coming from the transformation will store @utils.py 
@@ -70,7 +71,7 @@ Data Transformation Componenet:
         write whole process inside it and create necessary func in the class such as read_data and get_data_transformer_obj
         return data_transformation_artifacts
 
-Model Trainer Componenet:
+Model Trainer & Evaluation Componenet:
     As usual first setup file paths, configration and artifacts for model trainer is setup. @training_pipeline, config_entity.py and artifact_entity.py
     Then create ml_utils in utils folder and create metric and model file: inside metric -> classification_metric.py 
         which contain func: get_classification_score() gives f1, precision, recall socre and store in ClassificationMetricArtifacts which further used to 
@@ -80,15 +81,41 @@ Model Trainer Componenet:
     Create a method: track_mlflow() in ModelTrainer() to track the result of ClassificationMetricArtifacts and storing best model.
     Run initiate_model_trainer and return model_trainer_artifacts.
 
+Model Pusher Component:
+    Final Model: Create a final model folder at root We will store preprocessor object and final model here.
+    generally we can store final obj or model on cloud such as AWS S3 etc.
+
 How we can run the model training locally and track mlflow remotely: Ans-> via ML Dagshub: DagsHub is a platform for AI and ML developers that lets you manage and collaborate on your data, models, experiments, alongside your code.
 Dagshub: through it what we want is when we run code in local and mlflow hits all the logs ot tracking files will be loaded in remote repository not in local...
 Note: MLflow: Open-source, focuses on the ML lifecycle (tracking, models, etc.).
       DAGsHub: Open-source, focuses on collaboration, version control (Git/DVC), and tracking.
-Step 1: conncet github repository in dagshub.
-Step 2: connect dagshub repo with local repo u need to install dagshub
-Step 3: Follow steps of dagshub @ experiments
-Step 4: Run the experiment locally all the tracking file and model saved at remote repository in dagshub.
-Note: we can give the url to anybody to track our progress. 
+        Step 1: conncet github repository in dagshub.
+        Step 2: connect dagshub repo with local repo u need to install dagshub
+        Step 3: Follow steps of dagshub @ experiments
+        Step 4: Run the experiment locally all the tracking file and model saved at remote repository in dagshub.
+    Note: we can give the url to anybody to track our progress. 
+
+Training Pipeline: It is always better to create a class for running whole processes
+    Create training_pipeline.py to run whole processes @pipeline.
+
+APP: 
+    Create app.py 
+        use Fast Api for front end.
+        from fastapi.middleware.cors import CORSMiddleware:
+        CORSMiddleware:
+        Cross-Origin Resource Sharing: security feature implemented by web browsers to control how resources on a web server can be requested from another domain. 
+        By default, browsers block cross-origin requests for security reasons, preventing one website from accessing resources on another. 
+        CORS allows servers to specify who can access their resources, what methods are allowed (GET, POST, etc.), and 
+        what headers can be included in the request.
+
+Batch Predictions: 
+    what if we need prediction for new input features which don't have Result/Output. And we have to predict. We do BP.
+    here we use the class NetworkModel from utils->ml_utils->model->NetworkModel for prediction
+    create a func: predict_route in app, use upload file and predict based on file data store prediction in Prediction Output folder with input data.
+    
+
+
+
 
      
 

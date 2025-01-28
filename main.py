@@ -45,8 +45,8 @@ if __name__ == "__main__":
         trainer_artifacts = model_trainer.initiate_model_trainer()
         logging.info("Model training is successfully completed...!!")
         print(trainer_artifacts)
-        
-
 
     except Exception as e:
         raise NetworkSecurityExcption(e, sys)
+    
+    
