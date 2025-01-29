@@ -131,7 +131,7 @@ AWS S3 Bucket:
         Note: don't share crendential and push it in git...please!!!
 
 github workflow:
-    write configration for EC2 deployment..do chat gpt and follow code...
+    write configration for EC2 deployment..do chat gpt and follow code...make CI-CD. 
 
 Docker Image:
     dockerfile: create it 
@@ -146,6 +146,19 @@ Docker Image:
 ECR REPOSITORY: aws cloud storage
     create it to store docker image
     carefully arrange and store credentials according to github workflow for deployment
+
+EC2 instance: (virtual server)
+    Finally create an Ec2 instance.
+    Then Connect server use ubuntu, and follow procedure for configration and download docker.
+    After that in git create a runner and follow the steps to create and running a runer in EC2
+    Once step done push latest updates or git workflow for CI CD in github.
+    Runner will follow the workflow and create CI CD pipeline and create a docker image in ECR
+    Deployment: workflow will push ECR image into EC2 and run the application via CD
+
+    Overall:
+        CI (Continuous Integration): Automates the process of merging code changes and running tests to ensure the code is functional.
+        Build Image in ECR (Elastic Container Registry): Creates a Docker image of the application and stores it in AWS ECR for version control and easy access.
+        CD (Continuous Deployment): Automatically deploys the built Docker image to a production environment, ensuring the latest version is always live.
 
 
 
