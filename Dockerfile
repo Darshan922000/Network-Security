@@ -4,10 +4,6 @@ FROM python:3.10.11-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# Setting up an environment...
-ENV FAST_API=app.py
-ENV API_PORT=8000
-
 # Copy all files into the container
 COPY . .
 
@@ -20,8 +16,13 @@ RUN poetry config virtualenvs.create false
 # Install dependencies from pyproject.toml
 RUN poetry install --no-root
 
+RUN apt update -y && pip install awscli -y
+
+RUN apt-get update
+
 # Expose the port for FastAPI
 EXPOSE 8000
 
 # Default command: run FastAPI
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+#CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["python3.10.11", "app.py"]

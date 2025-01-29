@@ -131,9 +131,21 @@ AWS S3 Bucket:
         Note: don't share crendential and push it in git...please!!!
 
 github workflow:
-    write configration for EC2 deployment..
+    write configration for EC2 deployment..do chat gpt and follow code...
 
 Docker Image:
+    dockerfile: create it 
+        apt: apt provides a high-level Command Line Interface (CLI) for the APT package management system, 
+            offering a user-friendly interface intended for interactive use. It simplifies common tasks like installation, upgrades, 
+            and removal, with better defaults than more specialized tools like apt-get and apt-cache.
+        apt-get: apt-get is a command-line tool that helps in handling packages in Linux. 
+                Its main task is to retrieve the information and packages from the authenticated sources for installation, upgrade, and 
+                removal of packages along with their dependencies. Here APT stands for Advanced Packaging Tool
+        
+ECR REPOSITORY: aws cloud storage
+    create it to store docker image
+    carefully arrange and store credentials according to github workflow for deployment
+
 
 
     
