@@ -141,10 +141,13 @@ Docker Image:
         apt-get: apt-get is a command-line tool that helps in handling packages in Linux. 
                 Its main task is to retrieve the information and packages from the authenticated sources for installation, upgrade, and 
                 removal of packages along with their dependencies. Here APT stands for Advanced Packaging Tool
+        Build it and run app through it, if all right then we are good to go for deployment
         
 ECR REPOSITORY: aws cloud storage
     create it to store docker image
     carefully arrange and store credentials according to github workflow for deployment
+
+
 
 
 

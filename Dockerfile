@@ -16,7 +16,7 @@ RUN poetry config virtualenvs.create false
 # Install dependencies from pyproject.toml
 RUN poetry install --no-root
 
-RUN apt update -y && pip install awscli -y
+RUN apt clean && apt update -y && apt install -y curl less && pip install awscli
 
 RUN apt-get update
 
@@ -24,5 +24,4 @@ RUN apt-get update
 EXPOSE 8000
 
 # Default command: run FastAPI
-#CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
-CMD ["python3.10.11", "app.py"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

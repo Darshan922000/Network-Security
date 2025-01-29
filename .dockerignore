@@ -1,0 +1,23 @@
+#Unnecessary files...
+.gitignore
+
+# Exclude editor-related files
+*.swp
+*.bak
+
+# Exclude version control files
+.git
+
+# Exclude Python cache and bytecode
+__pycache__/
+*.pyc
+
+# Exclude environment and virtual environment files
+.venv/
+
+# Exclude Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+#readme file...
+README.md
+*.md

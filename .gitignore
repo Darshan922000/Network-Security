@@ -1,6 +1,5 @@
-#ignore files and folders..
+#unnecessary folder
 imp/
-steps.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

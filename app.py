@@ -24,12 +24,13 @@ mongodb_url = os.getenv("MONGODB_URL")
 print(mongodb_url)
 
 
+
+
 from networksecurity.constant.training_pipeline import DATA_INGESTION_COLLECTION_NAME
 from networksecurity.constant.training_pipeline import DATA_INGESTION_DATABASE_NAME
 client = pymongo.MongoClient(mongodb_url)
 database = client[DATA_INGESTION_DATABASE_NAME]
 collection = database[DATA_INGESTION_COLLECTION_NAME]
-
 
 app = FastAPI()
 origins = ["*"]
@@ -44,7 +45,6 @@ app.add_middleware(
 
 from fastapi.templating import Jinja2Templates
 templates = Jinja2Templates(directory="./templates")
-
 
 @app.get("/", tags=["authentication"])
 async def index():
@@ -80,8 +80,8 @@ async def predict_route(request: Request, file: UploadFile = File(...)):
     except Exception as e:
         raise NetworkSecurityExcption(e, sys)
 
-if __name__ == "__main__":
-    app_run(app, host="localhost", port=8000)
+'''if __name__ == "__main__":
+    app_run(app, host="localhost", port=8000)'''
 
     
 
