@@ -21,7 +21,9 @@ RUN apt clean && apt update -y && apt install -y curl less && pip install awscli
 RUN apt-get update
 
 # Expose the port for FastAPI
-EXPOSE 8000
+EXPOSE 8080
 
 # Default command: run FastAPI
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+
+
